@@ -1,11 +1,14 @@
 name: PR hygiene
 
+# ملاحظة: بنستخدم pull_request مش pull_request_target.
+# العنوان وأرقام السطور موجودين في الـ event payload في الحالتين،
+# و pull_request مابيديش الـ secrets لـ PRs الجاية من fork.
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, edited, reopened, synchronize]
 
 permissions:
-  pull-requests: read
+  contents: read
 
 jobs:
   conventional-title:
