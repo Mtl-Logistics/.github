@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/Mtl-Logistics/.github/blob/main/SECURITY.md
+    about: Never report security issues publicly — follow our security policy instead.
+  - name: 💬 Ask a question
+    url: https://github.com/orgs/Mtl-Logistics/discussions
+    about: For usage questions and open-ended discussion.
+  - name: 📖 Contributing guide
+    url: https://github.com/Mtl-Logistics/.github/blob/main/CONTRIBUTING.md
+    about: How we branch, commit, review and merge.

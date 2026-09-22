@@ -1,0 +1,6 @@
+{
+  "name": "MTL — PR hygiene",
+  "description": "Enforces Conventional Commit PR titles and warns on oversized diffs.",
+  "iconName": "octicon git-pull-request",
+  "categories": ["Continuous integration", "Automation"]
+}

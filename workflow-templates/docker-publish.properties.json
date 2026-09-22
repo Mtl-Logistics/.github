@@ -1,0 +1,7 @@
+{
+  "name": "MTL — Container build and publish",
+  "description": "Builds a multi-tagged image, pushes to GHCR with SBOM and signed build provenance.",
+  "iconName": "octicon container",
+  "categories": ["Continuous delivery", "Docker", "Containers"],
+  "filePatterns": ["Dockerfile$", "[Dd]ockerfile.*"]
+}

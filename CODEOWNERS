@@ -1,0 +1,30 @@
+# Default reviewers for the organization-wide defaults.
+# Changes here affect every repository, so every change needs an owner review.
+#
+# Syntax: <path pattern>  <@user or @org/team>
+# The LAST matching pattern wins.
+
+# Everything in this repo
+*                               @Mtl-Logistics/owners
+
+# Community health and process documents
+/CONTRIBUTING.md                @Mtl-Logistics/owners @Mtl-Logistics/platform
+/CODE_OF_CONDUCT.md             @Mtl-Logistics/owners
+/SUPPORT.md                     @Mtl-Logistics/owners @Mtl-Logistics/platform
+
+# Security policy — security team must sign off
+/SECURITY.md                    @Mtl-Logistics/owners @Mtl-Logistics/security
+
+# The public face of the organization
+/profile/                       @Mtl-Logistics/owners
+
+# CI/CD templates inherited by every repo
+/workflow-templates/            @Mtl-Logistics/devops @Mtl-Logistics/platform
+/.github/workflows/             @Mtl-Logistics/devops
+
+# Issue and PR templates
+/.github/ISSUE_TEMPLATE/        @Mtl-Logistics/owners @Mtl-Logistics/platform
+/.github/PULL_REQUEST_TEMPLATE.md  @Mtl-Logistics/owners @Mtl-Logistics/platform
+
+# This file itself
+/CODEOWNERS                     @Mtl-Logistics/owners

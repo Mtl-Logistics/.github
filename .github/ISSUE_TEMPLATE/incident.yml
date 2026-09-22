@@ -1,0 +1,76 @@
+name: 🚨 Incident
+description: Production is degraded or down
+title: "[INCIDENT] "
+labels: ["type:incident", "priority:P1", "status:active"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **If this is an active outage, page the on-call rota first, then file this.**
+        This issue is the timeline of record — keep it updated as you go.
+
+  - type: input
+    id: summary
+    attributes:
+      label: One-line summary
+      placeholder: "Shipment tracking API returning 503 for ~40% of requests"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "SEV1 — full outage or data loss"
+        - "SEV2 — major feature down for many users"
+        - "SEV3 — degraded performance, partial impact"
+    validations:
+      required: true
+
+  - type: input
+    id: started
+    attributes:
+      label: Detected at (UTC)
+      placeholder: "2026-09-22 14:05 UTC"
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Customer impact
+      description: Who is affected, and what can they not do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: services
+    attributes:
+      label: Affected services
+    validations:
+      required: true
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline
+      description: Append as the incident develops. Times in UTC.
+      value: |
+        - `HH:MM` detected —
+        - `HH:MM` acknowledged —
+        - `HH:MM` mitigated —
+        - `HH:MM` resolved —
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Mitigation applied
+
+  - type: checkboxes
+    id: followup
+    attributes:
+      label: Follow-up
+      options:
+        - label: Postmortem scheduled (required for SEV1 and SEV2)
+        - label: Action items filed as separate issues

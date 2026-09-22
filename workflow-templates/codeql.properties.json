@@ -1,0 +1,6 @@
+{
+  "name": "MTL — CodeQL security scanning",
+  "description": "Static security analysis on every PR to the default branch, plus a weekly scheduled scan.",
+  "iconName": "octicon shield-check",
+  "categories": ["Security", "Code scanning"]
+}

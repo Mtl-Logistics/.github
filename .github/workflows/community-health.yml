@@ -1,0 +1,64 @@
+name: Community health
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate templates and metadata
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate issue-form YAML
+        run: |
+          python3 - <<'PY'
+          import pathlib, sys, yaml
+          failed = []
+          for p in sorted(pathlib.Path(".github/ISSUE_TEMPLATE").glob("*.yml")):
+              try:
+                  yaml.safe_load(p.read_text())
+                  print(f"ok   {p}")
+              except Exception as e:
+                  failed.append((p, e))
+                  print(f"FAIL {p}: {e}")
+          sys.exit(1 if failed else 0)
+          PY
+
+      - name: Validate workflow-template YAML
+        run: |
+          python3 - <<'PY'
+          import pathlib, sys, yaml
+          failed = []
+          for p in sorted(pathlib.Path("workflow-templates").glob("*.yml")):
+              try:
+                  yaml.safe_load(p.read_text())
+                  print(f"ok   {p}")
+              except Exception as e:
+                  failed.append((p, e))
+                  print(f"FAIL {p}: {e}")
+          for p in sorted(pathlib.Path("workflow-templates").glob("*.properties.json")):
+              import json
+              try:
+                  json.loads(p.read_text())
+                  print(f"ok   {p}")
+              except Exception as e:
+                  failed.append((p, e))
+                  print(f"FAIL {p}: {e}")
+          sys.exit(1 if failed else 0)
+          PY
+
+      - name: Check required community files exist
+        run: |
+          missing=0
+          for f in README.md CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md SUPPORT.md profile/README.md; do
+            if [ -f "$f" ]; then echo "ok   $f"; else echo "FAIL $f missing"; missing=1; fi
+          done
+          exit $missing

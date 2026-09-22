@@ -1,0 +1,7 @@
+{
+  "name": "MTL — Node.js CI",
+  "description": "Lint, type check, test matrix, build and dependency audit for Node/TypeScript services.",
+  "iconName": "octicon package",
+  "categories": ["Continuous integration", "JavaScript", "TypeScript", "Node"],
+  "filePatterns": ["package\\.json$"]
+}

@@ -1,0 +1,63 @@
+name: 🔑 Access request
+description: Request access to a repository, team, environment or secret
+title: "[ACCESS] "
+labels: ["type:access", "status:triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Access is granted on a least-privilege basis and reviewed periodically.
+        **Never paste a credential into this issue.**
+
+  - type: input
+    id: who
+    attributes:
+      label: GitHub username
+      placeholder: "@octocat"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of access
+      options:
+        - Repository
+        - Team membership
+        - Deployment environment
+        - CI secret or variable
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: target
+    attributes:
+      label: Which resource
+      placeholder: "Mtl-Logistics/fleet-api, or the devops team"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: level
+    attributes:
+      label: Permission level needed
+      options: [Read, Triage, Write, Maintain, Admin]
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it is needed
+      description: The task this unblocks. Requests without a reason are closed.
+    validations:
+      required: true
+
+  - type: input
+    id: duration
+    attributes:
+      label: For how long
+      placeholder: "Permanent, or until 2026-12-31"
+    validations:
+      required: true
