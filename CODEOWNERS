@@ -8,9 +8,9 @@
 *                               @Mtl-Logistics/owners
 
 # Community health and process documents
-/CONTRIBUTING.md                @Mtl-Logistics/owners @Mtl-Logistics/platform
+/CONTRIBUTING.md                @Mtl-Logistics/owners
 /CODE_OF_CONDUCT.md             @Mtl-Logistics/owners
-/SUPPORT.md                     @Mtl-Logistics/owners @Mtl-Logistics/platform
+/SUPPORT.md                     @Mtl-Logistics/owners
 
 # Security policy — security team must sign off
 /SECURITY.md                    @Mtl-Logistics/owners @Mtl-Logistics/security
@@ -19,12 +19,12 @@
 /profile/                       @Mtl-Logistics/owners
 
 # CI/CD templates inherited by every repo
-/workflow-templates/            @Mtl-Logistics/devops @Mtl-Logistics/platform
+/workflow-templates/            @Mtl-Logistics/devops
 /.github/workflows/             @Mtl-Logistics/devops
 
 # Issue and PR templates
-/.github/ISSUE_TEMPLATE/        @Mtl-Logistics/owners @Mtl-Logistics/platform
-/.github/PULL_REQUEST_TEMPLATE.md  @Mtl-Logistics/owners @Mtl-Logistics/platform
+/.github/ISSUE_TEMPLATE/        @Mtl-Logistics/owners
+/.github/PULL_REQUEST_TEMPLATE.md  @Mtl-Logistics/owners
 
 # This file itself
 /CODEOWNERS                     @Mtl-Logistics/owners
