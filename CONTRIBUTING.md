@@ -5,7 +5,15 @@ unless a repo's own `CONTRIBUTING.md` overrides them.
 
 ## Branching
 
-`main` is protected and always deployable. Work happens on short-lived branches:
+`main` is always deployable. It accepts direct pushes — it cannot be
+force-pushed or deleted, but nothing stops you writing to it.
+
+That makes branching a judgement call rather than a rule. Push straight to
+`main` for small, obvious, self-contained changes. Use a branch and a PR when
+the change is non-trivial, touches auth, data or money, or you simply want a
+second pair of eyes.
+
+Branches are short-lived and named by what they do:
 
 ```
 feat/shipment-eta-api
@@ -37,12 +45,13 @@ and a `BREAKING CHANGE:` footer.
 2. Keep it small — under ~400 changed lines is the target. Split large work.
 3. Mark it **Draft** while it is still moving.
 4. CI must be green. A red pipeline is not a review problem, it is yours.
-5. At least one approving review from a `CODEOWNERS` reviewer is required.
+5. Wait for a review. Nothing in the tooling forces this, which is exactly why
+   it matters: if you opened a PR, you wanted the review. Take it.
 6. Merge with **Squash and merge**. The squash subject is the PR title, so the
    PR title must itself be a valid Conventional Commit.
 
-Do not merge your own PR unless you are the sole maintainer of that repo and
-the change is a documented exception.
+`CODEOWNERS` marks who knows each area. Reviews are not enforced by branch
+rules, so treat the file as a directory of who to ask, not a gate to satisfy.
 
 ## Code review
 
@@ -54,6 +63,9 @@ from suggestions — prefix non-blocking ones with `nit:`. Approve when the chan
 is *better than what is on `main`*, not when it is perfect.
 
 ## Local checks before pushing
+
+Because `main` takes direct pushes, these are the only gate between your
+change and the default branch. Run them.
 
 Every repo exposes the same entry points, whatever the stack underneath:
 

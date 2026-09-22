@@ -27,9 +27,13 @@ warehousing and carrier integrations.
 
 ## How we work
 
-- **`main` is always deployable.** Every change lands through a pull request.
-- **Review is required.** No direct pushes, no force-pushes, no self-merges.
-- **CI gates the merge.** Lint, tests, build and security scans must pass.
+- **`main` is always deployable.** Push to it only when it stays that way.
+- **Pull requests are encouraged, not enforced.** Anything non-trivial, anything
+  touching auth, data or money, and anything you want a second pair of eyes on
+  goes through a PR. Small, obvious changes may go straight to `main`.
+- **CI runs on every push.** A red pipeline on `main` is everyone's problem —
+  fix it or revert, immediately.
+- **`main` cannot be deleted or force-pushed.** History is append-only.
 - **Conventional Commits.** Commit and PR titles follow `type(scope): subject`.
 - **Secrets never touch the repo.** Push protection and secret scanning are on.
 
